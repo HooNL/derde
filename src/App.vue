@@ -1,12 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <article id="app">
+    <Nav />
+    <Logo id="logo" />
     <router-view/>
-  </div>
+    <Footer />
+  </article>
 </template>
+
+<script>
+// @ is an alias to /src
+import Logo from '@/components/Logo.vue'
+import Nav from "@/components/Navbar.vue"
+import Footer from "@/components/Footer.vue"
+export default {
+  name: "App",
+  components: {
+    Nav,
+    Logo,
+    Footer
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,18 +29,44 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  z-index: 0;
 }
 
+
+
+#logo{
+  position: sticky;
+  top: 5px;
+  left: 5px;
+  z-index: 99;
+  display: flex;
+}
+
+
 #nav {
-  padding: 30px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  padding: 25px;
+  margin: 0;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+ 
+}
+
+#nav a:hover{
+  color: rgb(112, 102, 124);
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ffa600de;
+}
+
+
+.mar{
+  max-width: 700px;
+  display: inline-block;
 }
 </style>
